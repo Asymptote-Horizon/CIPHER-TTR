@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIPHER Tech Recruitment | Build Activity</title>
+  <meta name="description" content="CIPHER IT Students' Executive Council — Tech Team Recruitment Build Activity. Orientation, workflow guide, problem statement reveal, and build countdown.">
+  <link rel="icon" type="image/png" href="logo-circle.png">
+
+  <!-- Google Fonts: Space Grotesk (headings) + Inter (body) + JetBrains Mono (code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Layers -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+  <div class="glow-orb orb-3" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="top-nav">
+    <div class="nav-container">
+      <a href="#hero" class="brand-link" id="nav-brand">
+        <img src="logo-circle.png" alt="CIPHER Logo" class="nav-logo">
+        <div class="brand-text">
+          <span class="brand-title">CIPHER</span>
+          <span class="brand-sub">IT Council · Tech Recruitment</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="main-nav">
+        <a href="#hero" class="nav-item active" data-target="hero">Overview</a>
+        <a href="#timeline-section" class="nav-item" data-target="timeline-section">Event Flow</a>
+        <a href="#guidelines-section" class="nav-item" data-target="guidelines-section">Setup & Rules</a>
+        <a href="#reveal-section" class="nav-item" data-target="reveal-section">Problem Reveal</a>
+        <a href="#countdown-section" class="nav-item" data-target="countdown-section">Timer</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="sound-toggle-btn" class="sound-btn" title="Toggle Sound Alerts" aria-label="Toggle Sound Alerts">
+          <span id="sound-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================== SECTION 1: HERO ======================== -->
+    <section class="section hero-section" id="hero">
+      <div class="hero-container">
+        <div class="crest-wrapper">
+          <div class="crest-glow-ring"></div>
+          <div class="crest-glow-ring secondary"></div>
+          <img src="logo-circle.png" alt="CIPHER IT Students' Executive Council" class="hero-logo-img">
+        </div>
+
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>CIPHER TECH RECRUITMENT · BUILD ACTIVITY</span>
+        </div>
+
+        <h1 class="hero-title">
+          WELCOME TO <span class="gold-gradient-text">CIPHER</span>
+          <span class="hero-title-sub">TECH TEAM RECRUITMENT</span>
+        </h1>
+
+        <p class="hero-lead">
+          Step into the arena of active building. Today, you take command of modern AI-powered developer tooling
+          to architect, engineer, and ship a real-world web application — from a blank canvas to a live URL.
+        </p>
+
+        <div class="hero-features-grid">
+          <div class="feature-card">
+            <h3>Practical Build Challenge</h3>
+            <p>Skip the formalities — demonstrate your engineering instincts, design taste, and creative problem-solving in a live build round.</p>
+          </div>
+          <div class="feature-card highlight">
+            <h3>AI-Assisted Workflow</h3>
+            <p>Direct AI agents with precision. You define the architecture and logic — the AI executes. Prompt quality matters.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Scratch to Live URL</h3>
+            <p>Code it, commit to GitHub, deploy to the cloud, and share a working link — all within the session window.</p>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="primary-gold-btn" onclick="scrollToSection('timeline-section')">
+            <span>Explore Event Flow</span>
+            <span class="btn-arrow">↓</span>
+          </button>
+          <button class="secondary-glass-btn" onclick="scrollToSection('reveal-section')">
+            <span>Problem Brief</span>
+          </button>
+          <button class="secondary-glass-btn" onclick="scrollToSection('countdown-section')">
+            <span>Launch Timer</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== SECTION 2: HORIZONTAL TIMELINE ======================== -->
+    <section class="section timeline-outer-container" id="timeline-section">
+      <div class="timeline-header-block">
+        <div class="section-tag">STEP-BY-STEP WORKFLOW</div>
+        <h2 class="section-title">What You <span class="gold-gradient-text">Will Do</span></h2>
+        <p class="section-subtitle">
+          Five milestones from orientation to final submission. Drag or use the controls to move through the sequence.
+        </p>
+
+        <div class="timeline-controls">
+          <button class="timeline-nav-btn prev" id="timeline-prev-btn" aria-label="Previous Step">‹</button>
+          <div class="timeline-progress-dots" id="timeline-dots">
+            <button class="t-dot active" data-index="0"></button>
+            <button class="t-dot" data-index="1"></button>
+            <button class="t-dot" data-index="2"></button>
+            <button class="t-dot" data-index="3"></button>
+            <button class="t-dot" data-index="4"></button>
+          </div>
+          <button class="timeline-nav-btn next" id="timeline-next-btn" aria-label="Next Step">›</button>
+        </div>
+      </div>
+
+      <div class="timeline-scroll-track-wrapper" id="timeline-scroll-wrapper">
+        <div class="timeline-track" id="timeline-track">
+          <div class="timeline-progress-bar-bg">
+            <div class="timeline-progress-bar-fill" id="timeline-fill-bar"></div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="timeline-card active" data-step="1">
+            <div class="step-badge-wrapper">
+              <div class="step-number-circle">1</div>
+              <span class="step-status-tag current">In Progress</span>
+            </div>
+            <h3 class="step-bold-title">Orientation</h3>
+            <p class="step-sub-tagline">Live intro to CIPHER, a workflow demo, and a quick Q&A.</p>
+            <div class="step-divider"></div>
+            <ul class="step-checklist">
+              <li>Introduction to CIPHER and the recruitment context.</li>
+              <li>Live projector demo — watch the full workflow once before you build.</li>
+              <li>Ask any questions before the countdown begins.</li>
+            </ul>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-card" data-step="2">
+            <div class="step-badge-wrapper">
+              <div class="step-number-circle">2</div>
+              <span class="step-status-tag">Setup</span>
+            </div>
+            <h3 class="step-bold-title">Environment Setup</h3>
+            <p class="step-sub-tagline">Open your IDE, sign in with Google, create your workspace folder.</p>
+            <div class="step-divider"></div>
+            <ul class="step-checklist">
+              <li>Open Antigravity and sign in with your Google account.</li>
+              <li>Create a folder named exactly <code class="gold-code">TTR_[Last 3 digits of PRN]</code>.</li>
+              <li>Inside that folder, create <code class="gold-code">docs.md</code> or <code class="gold-code">logs.txt</code> — your prompt log.</li>
+            </ul>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-card" data-step="3">
+            <div class="step-badge-wrapper">
+              <div class="step-number-circle">3</div>
+              <span class="step-status-tag">Build</span>
+            </div>
+            <h3 class="step-bold-title">Prompt & Build</h3>
+            <p class="step-sub-tagline">You lead — the AI assists. Every prompt you give goes into your log.</p>
+            <div class="step-divider"></div>
+            <ul class="step-checklist">
+              <li>Direct the AI with clear, structured prompts. Copy each one to your log file.</li>
+              <li>Use any technology you're comfortable with — HTML/CSS/JS, React, Node, anything.</li>
+              <li>Get the core working first; polish later.</li>
+            </ul>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-card" data-step="4">
+            <div class="step-badge-wrapper">
+              <div class="step-number-circle">4</div>
+              <span class="step-status-tag">Deploy</span>
+            </div>
+            <h3 class="step-bold-title">Push & Deploy</h3>
+            <p class="step-sub-tagline">Commit to a public GitHub repo and ship a live URL.</p>
+            <div class="step-divider"></div>
+            <ul class="step-checklist">
+              <li>Initialize Git, commit all files, push to a public GitHub repository.</li>
+              <li>Deploy on Vercel, Netlify, or GitHub Pages — get a shareable live link.</li>
+              <li>Add a quick README covering your stack and features.</li>
+            </ul>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-card" data-step="5">
+            <div class="step-badge-wrapper">
+              <div class="step-number-circle">5</div>
+              <span class="step-status-tag">Submit</span>
+            </div>
+            <h3 class="step-bold-title">Submit</h3>
+            <p class="step-sub-tagline">Share your GitHub link, live URL, and prompt log before time runs out.</p>
+            <div class="step-divider"></div>
+            <ul class="step-checklist">
+              <li>Public GitHub repository URL (must be visible to anyone).</li>
+              <li>Live deployed app URL — test it works before submitting.</li>
+              <li>Your complete <code>docs.md</code> / <code>logs.txt</code> prompt log.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== SECTION 3: SETUP & SUBMISSION ======================== -->
+    <section class="section guidelines-section" id="guidelines-section">
+      <div class="section-container">
+        <div class="section-tag">SPECIFICATIONS & DELIVERABLES</div>
+        <h2 class="section-title">Setup Guidelines & <span class="gold-gradient-text">Submissions</span></h2>
+        <p class="section-subtitle">
+          Conventions you must follow to ensure your submission is valid and evaluable.
+        </p>
+
+        <div class="rules-grid">
+          <!-- Folder Naming -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div>
+                <h3>Folder Naming Convention</h3>
+                <span class="rule-status">Mandatory</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <span class="code-label">Required Format:</span>
+              <div class="code-badge">TTR_&lt;Last 3 Digits of PRN&gt;</div>
+              <span class="code-example">Example: PRN 22310123 &rarr; <strong>TTR_123</strong></span>
+            </div>
+            <p class="rule-desc">
+              Create this folder at the start. Do all your work inside it — this is the folder you submit.
+            </p>
+          </div>
+
+          <!-- Prompt Log -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div>
+                <h3>Prompt Logging Document</h3>
+                <span class="rule-status">Core Evaluation Metric</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <span class="code-label">File Name:</span>
+              <div class="code-badge">docs.md <span class="or-separator">or</span> logs.txt</div>
+              <span class="code-example">Record every AI prompt in chronological order</span>
+            </div>
+            <p class="rule-desc">
+              After every prompt you give the AI, paste it here. This shows us how you think, structure requirements, and iterate.
+            </p>
+          </div>
+
+          <!-- Technology Freedom -->
+          <div class="rule-card tech-freedom-card">
+            <div class="rule-header">
+              <div>
+                <h3>Technology Freedom</h3>
+                <span class="rule-status">Your Choice</span>
+              </div>
+            </div>
+            <p class="rule-desc tech-freedom-desc">
+              You are free to use <strong>any technology</strong> you are comfortable with.
+            </p>
+            <div class="rule-tags">
+              <span class="tag">HTML / CSS / JS</span>
+              <span class="tag">React</span>
+              <span class="tag">Vite</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Any framework</span>
+            </div>
+            <p class="rule-desc" style="margin-top: 14px;">
+              Pick the stack you know best and can move fastest with. Speed and completeness matter — don't start a setup you haven't done before.
+            </p>
+          </div>
+
+          <!-- Submission Checklist -->
+          <div class="rule-card checklist-card">
+            <div class="rule-header">
+              <div>
+                <h3>Submission Deliverables</h3>
+                <span class="rule-status">Submit Before Timer Stops</span>
+              </div>
+            </div>
+            <ul class="deliverables-list">
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Public GitHub Repository Link</strong>
+                  <span>Complete source code + README</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Live Deployed URL</strong>
+                  <span>Hosted on Vercel, Netlify, or equivalent</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Prompt Log (docs.md / logs.txt)</strong>
+                  <span>Included in the repo</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Local Workstation Copy</strong>
+                  <span>Keep it intact for backup evaluation</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Support Banner -->
+        <div class="support-banner">
+          <div class="support-inner">
+            <p class="support-eyebrow">Throughout the session</p>
+            <h3>Stuck?<br>Raise your hand.</h3>
+            <p>
+              CIPHER team members are in the room the entire time. If you hit a wall with Git, your IDE, or deployment — we will unblock you. The building is yours to do.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== SECTION 4: PROBLEM STATEMENT REVEAL ======================== -->
+    <section class="section reveal-section" id="reveal-section">
+      <div class="section-container">
+        <div class="section-tag">OFFICIAL CHALLENGE BRIEF</div>
+        <h2 class="section-title">The Problem <span class="gold-gradient-text">Statement</span></h2>
+        <p class="section-subtitle">
+          The challenge has been chosen. When the presenter gives the signal, reveal it here.
+        </p>
+
+        <!-- Sealed State -->
+        <div class="reveal-lock-container" id="reveal-locked-state">
+          <div class="vault-graphic">
+            <div class="vault-ring outer"></div>
+            <div class="vault-ring inner"></div>
+            <div class="vault-icon" id="vault-icon">🔒</div>
+          </div>
+          <div class="reveal-prompt-text">
+            <h3>Awaiting Problem Statement Reveal</h3>
+            <p>The challenge will be announced shortly. Click below when instructed.</p>
+          </div>
+          <button class="reveal-action-btn" id="reveal-trigger-btn">
+            <span class="btn-text" id="reveal-btn-text">REVEAL PROBLEM STATEMENT</span>
+          </button>
+          <div class="decipher-line" id="decipher-line" aria-hidden="true"></div>
+        </div>
+
+        <!-- Revealed State -->
+        <div class="reveal-unlocked-container hidden" id="reveal-unlocked-state">
+          <div class="unlocked-header">
+            <div class="unlocked-badge">
+              <span class="live-indicator"></span> CHALLENGE REVEALED
+            </div>
+            <button class="relock-btn" id="relock-btn" aria-label="Re-lock Brief">
+              Re-lock
+            </button>
+          </div>
+
+          <div class="poster-container">
+            <div class="poster-header-bar">
+              <div class="poster-title-info">
+                <span class="brief-kicker">CIPHER TECH RECRUITMENT · BUILD ACTIVITY</span>
+                <h3 class="brief-title">GOAL TRACKER — Daily Goals & Progress Tracker</h3>
+              </div>
+              <div class="poster-actions">
+                <button class="zoom-btn" id="zoom-poster-btn" title="Expand Fullscreen Poster">
+                  View Full Poster
+                </button>
+                <a href="Photo-tobe-revealed.jpeg" target="_blank" class="download-link-btn" title="Open Image in New Tab">
+                  Open Original
+                </a>
+              </div>
+            </div>
+
+            <div class="poster-img-wrapper" id="poster-click-wrapper">
+              <img src="Photo-tobe-revealed.jpeg" alt="Cipher Tech Recruitment Goal Tracker Problem Statement Poster" class="revealed-poster-img" id="poster-image">
+              <div class="poster-overlay-hint">
+                <span>Click to expand fullscreen</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Breakdown Cards -->
+          <div class="brief-breakdown-grid">
+            <div class="brief-card">
+              <div class="brief-card-num">01</div>
+              <h4>The Problem</h4>
+              <p>Students struggle to stay consistent with studying, exercise, and personal goals. Plans are easy to forget and progress is hard to measure.</p>
+            </div>
+            <div class="brief-card">
+              <div class="brief-card-num">02</div>
+              <h4>Your Challenge</h4>
+              <p>Build <strong>Goal Tracker</strong> — a simple, motivating dashboard where students set daily goals, mark them complete, and track consistency over time.</p>
+            </div>
+            <div class="brief-card full-width">
+              <div class="brief-card-num">03</div>
+              <h4>What Your App Must Do</h4>
+              <div class="must-do-grid">
+                <div class="must-do-item">
+                  <span class="must-num">1</span>
+                  <div><strong>Dashboard:</strong> Today's date, goal summary, completion percentage.</div>
+                </div>
+                <div class="must-do-item">
+                  <span class="must-num">2</span>
+                  <div><strong>Goals:</strong> Add, edit, delete, categorize, toggle complete.</div>
+                </div>
+                <div class="must-do-item">
+                  <span class="must-num">3</span>
+                  <div><strong>Progress:</strong> Daily %, weekly view or calendar, streak counter.</div>
+                </div>
+                <div class="must-do-item">
+                  <span class="must-num">4</span>
+                  <div><strong>Persistence:</strong> Goals survive a page refresh via <code>localStorage</code>.</div>
+                </div>
+                <div class="must-do-item highlight-item">
+                  <span class="must-num">5</span>
+                  <div><strong>Your Feature:</strong> One original, creative addition of your own.</div>
+                </div>
+                <div class="must-do-item">
+                  <span class="must-num">6</span>
+                  <div><strong>Responsive:</strong> Works well on phone, tablet, and desktop.</div>
+                </div>
+              </div>
+            </div>
+            <div class="brief-card">
+              <div class="brief-card-num">04</div>
+              <h4>Reference</h4>
+              <p>Inspired by <strong>habitica.com</strong> — study their layout, task interactions, and progress feedback. Make it yours.</p>
+            </div>
+            <div class="brief-card">
+              <div class="brief-card-num">05</div>
+              <h4>Judging</h4>
+              <p>Clean UI, sensible behaviour, your own ideas, complete GitHub + live link, and a thorough prompt log.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== SECTION 5: COUNTDOWN TIMER ======================== -->
+    <section class="section countdown-section" id="countdown-section">
+      <div class="section-container timer-container-inner" id="timer-screen-box">
+        <!-- Projector Fullscreen Header (hidden normally) -->
+        <div class="projector-brand-header">
+          <img src="logo-circle.png" alt="CIPHER Logo" class="projector-logo">
+          <div class="projector-text">
+            <h2>CIPHER TECH RECRUITMENT · BUILD ACTIVITY</h2>
+            <p>Challenge: Goal Tracker Dashboard · Build, Push to GitHub & Deploy</p>
+          </div>
+        </div>
+
+        <div class="section-tag timer-tag">OFFICIAL CHALLENGE CLOCK</div>
+        <h2 class="section-title">Build <span class="gold-gradient-text">Countdown</span></h2>
+
+        <div class="timer-status-badge" id="timer-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span id="timer-status-text">READY · DEFAULT 1H 30M</span>
+        </div>
+
+        <!-- Giant Clock -->
+        <div class="giant-clock-wrapper" id="giant-clock-display">
+          <div class="time-unit-box">
+            <span class="digit-display" id="disp-hours">01</span>
+            <span class="unit-label">HOURS</span>
+          </div>
+          <span class="time-colon">:</span>
+          <div class="time-unit-box">
+            <span class="digit-display" id="disp-minutes">30</span>
+            <span class="unit-label">MINUTES</span>
+          </div>
+          <span class="time-colon">:</span>
+          <div class="time-unit-box">
+            <span class="digit-display" id="disp-seconds">00</span>
+            <span class="unit-label">SECONDS</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="timer-progress-track">
+          <div class="timer-progress-bar" id="timer-progress-fill" style="width: 100%;"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="timer-controls-cluster">
+          <button class="timer-main-btn start" id="timer-toggle-btn">
+            <span class="ctrl-icon" id="toggle-icon">▶</span>
+            <span id="toggle-text">START TIMER</span>
+          </button>
+          <button class="timer-secondary-btn" id="timer-reset-btn" title="Reset to configured start time">
+            <span class="ctrl-icon">↺</span>
+            <span>RESET</span>
+          </button>
+          <button class="timer-secondary-btn" id="timer-fullscreen-btn" title="Toggle Fullscreen Projector Mode">
+            <span class="ctrl-icon">⛶</span>
+            <span id="fs-btn-text">FULLSCREEN</span>
+          </button>
+          <button class="timer-secondary-btn settings-toggle-btn" id="timer-settings-btn" title="Timer Settings">
+            <span class="ctrl-icon">⚙</span>
+            <span>SETTINGS</span>
+          </button>
+        </div>
+
+        <!-- Collapsible Presets Drawer (hidden by default) -->
+        <div class="timer-presets-drawer hidden" id="timer-presets-drawer">
+          <div class="presets-row">
+            <span class="presets-label">Quick Presets:</span>
+            <div class="presets-buttons">
+              <button class="preset-btn active" data-time="5400">1h 30m</button>
+              <button class="preset-btn" data-time="4500">1h 15m</button>
+              <button class="preset-btn" data-time="3600">1h 00m</button>
+              <button class="preset-btn" data-time="900">15m</button>
+              <button class="preset-btn" data-time="300">5m</button>
+            </div>
+          </div>
+
+          <div class="presets-row adjust-row">
+            <span class="presets-label">Fine Adjust:</span>
+            <div class="presets-buttons">
+              <button class="adjust-btn" id="btn-sub-5m">−5 Min</button>
+              <button class="adjust-btn" id="btn-add-5m">+5 Min</button>
+              <button class="adjust-btn" id="btn-sub-1m">−1 Min</button>
+              <button class="adjust-btn" id="btn-add-1m">+1 Min</button>
+            </div>
+
+            <div class="custom-time-inputs">
+              <input type="number" id="custom-h" min="0" max="12" value="1" aria-label="Custom Hours">
+              <span>h</span>
+              <input type="number" id="custom-m" min="0" max="59" value="30" aria-label="Custom Minutes">
+              <span>m</span>
+              <button class="adjust-btn custom-set-btn" id="btn-set-custom">Set</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Reminder Strip -->
+        <div class="timer-footer-reminder">
+          <div class="reminder-item">
+            <span class="reminder-label">Folder</span>
+            <strong>TTR_[PRN Last 3]</strong>
+          </div>
+          <div class="reminder-divider"></div>
+          <div class="reminder-item">
+            <span class="reminder-label">Prompt Log</span>
+            <strong>docs.md / logs.txt</strong>
+          </div>
+          <div class="reminder-divider"></div>
+          <div class="reminder-item">
+            <span class="reminder-label">Submit</span>
+            <strong>GitHub Link + Live URL</strong>
+          </div>
+          <div class="reminder-divider"></div>
+          <div class="reminder-item highlight">
+            <strong>Stuck? Raise your hand.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="logo-circle.png" alt="CIPHER Logo" class="footer-logo">
+        <div>
+          <h4>CIPHER</h4>
+          <p>IT Students' Executive Council · MIT Academy of Engineering</p>
+        </div>
+      </div>
+      <div class="footer-center">
+        <p class="tagline">"Inspiring Code, Driving Innovation, Empowering Builders."</p>
+      </div>
+      <div class="footer-right">
+        <span class="event-tag">Tech Recruitment 2026</span>
+        <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="poster-lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <h3>CIPHER · Goal Tracker Problem Brief</h3>
+        <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close Lightbox">✕</button>
+      </div>
+      <div class="lightbox-img-box">
+        <img src="Photo-tobe-revealed.jpeg" alt="CIPHER Problem Statement Poster" class="lightbox-img">
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
